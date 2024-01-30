@@ -1,17 +1,19 @@
 "use strict";
-const input = document.querySelector('input');
+/*HTMLから要素を取り込む*/
+const input = document.querySelector('input'); 
 const decideButton = document.querySelector('#decide');
 const resetButton = document.querySelector('#reset');
 const result = document.querySelector('p');
 
 let randomNumber = Math.floor(Math.random()*100)+1;
-
+/*運試しの処理*/
 function TryYourLuck(){
-    let randomNumber = Math.floor(Math.random()*100)+1;
-    const userNumber = Number(input.value);
-    let message;
-    let sa = Number(Math.abs(userNumber-randomNumber))
+    let randomNumber = Math.floor(Math.random()*100)+1;/*ランダムな数字を生成する*/
+    const userNumber = Number(input.value);/*予想した数字*/
+    let message;/*表示する結果*/
+    let sa = Number(Math.abs(userNumber-randomNumber))/*ランダムな数字と予想した数字の差を求める*/
 
+/*ランダムな数字と予想した数字の差によって表示する結果を変える*/
     if(sa===0){
         message='無敵！！！！！'
     }else if(0<sa&&sa<=10){
@@ -23,15 +25,18 @@ function TryYourLuck(){
     }else{
         message='末吉';
     }
-    
+
+/*メッセージを表示し、生成されたランダムな数字はコンソールで確認できるようにする*/
     result.textContent = message;
     console.log(randomNumber)
 }
 
+/*結果をリセットする*/
 function resetNumber(){
     randomNumber =  Math.floor(Math.random()*100)+1;
     result.textContent='';
 }
 
+/*ボタンを押したら処理が実行されるようにする*/
 decideButton.addEventListener('click',TryYourLuck);
 resetButton.addEventListener('click',resetNumber);
