@@ -8,12 +8,12 @@ const result = document.querySelector('p');
 let randomNumber = Math.floor(Math.random()*100)+1;
 /*運試しの処理*/
 function TryYourLuck(){
-    let randomNumber = Math.floor(Math.random()*100)+1;/*ランダムな数字を生成する*/
+    let randomNumber = Math.floor(Math.random()*100)+1;/*1~100までのランダムな整数を生成する*/
     const userNumber = Number(input.value);/*予想した数字*/
     let message;/*表示する結果*/
-    let sa = Number(Math.abs(userNumber-randomNumber))/*ランダムな数字と予想した数字の差を求める*/
+    let sa = Number(Math.abs(userNumber-randomNumber))/*生成した整数と予想した数字の差を求める*/
 
-/*ランダムな数字と予想した数字の差によって表示する結果を変える*/
+/*生成した数字と予想した数字の差によって表示する結果を変える*/
     if(sa===0){
         message='無敵！！！！！'
     }else if(0<sa&&sa<=10){
